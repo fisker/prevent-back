@@ -1,0 +1,79 @@
+{
+  "name": "prevent-back",
+  "version": "0.0.0",
+  "description": "Prevent vistor go back to previous page",
+  "keywords": [
+    "prevent",
+    "back",
+    "leave",
+    "popstate",
+    "pushstate"
+  ],
+  "repository": "fisker/prevent-back",
+  "license": "MIT",
+  "author": {
+    "name": "fisker Cheung",
+    "email": "lionkay@gmail.com",
+    "url": "https://www.fiskercheung.com/"
+  },
+  "sideEffects": false,
+  "main": "dist/prevent-back.min.js",
+  "jsdelivr": "dist/prevent-back.min.js",
+  "unpkg": "dist/prevent-back.min.js",
+  "module": "dist/prevent-back.min.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "run-p build:*",
+    "build:js": "rollup --config",
+    "clean": "run-p clean:*",
+    "clean:dist": "del-cli dist",
+    "dist": "run-p dist:*",
+    "dist:npm": "np --yolo --no-yarn",
+    "format": "run-p format:*",
+    "format:eslint": "yarn lint:eslint --fix",
+    "format:markdown": "yarn lint:markdown --fix",
+    "format:package-json": "sort-package-json \"package.json\" \"packages/*/package.json\"",
+    "format:prettier": "yarn lint:prettier --write",
+    "lint": "run-p lint:*",
+    "lint:eslint": "eslint \"**/*.{js,mjs,vue}\"",
+    "lint:markdown": "markdownlint \"**/*.md\" --ignore \"**/node_modules/**\"",
+    "lint:package-json": "yarn run format:package-json --check",
+    "lint:prettier": "prettier \"**/*.{css,html,js,json,less,md,scss,ts,vue,yaml,yml}\" --check",
+    "release": "run-s clean lint build test format dist",
+    "test": "echo no test yet",
+    "test-coverage": "nyc yarn test"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "7.15.5",
+    "@babel/preset-env": "7.15.6",
+    "@commitlint/cli": "13.1.0",
+    "@fisker/commitlint-config": "1.3.6",
+    "@fisker/eslint-config": "8.0.0",
+    "@fisker/husky-config": "4.1.0",
+    "@fisker/lint-staged-config": "3.1.0",
+    "@fisker/prettier-config": "5.0.0",
+    "@rollup/plugin-babel": "5.3.0",
+    "cz-conventional-changelog": "3.3.0",
+    "del-cli": "4.0.1",
+    "eslint": "7.32.0",
+    "husky": "7.0.2",
+    "lint-staged": "11.1.2",
+    "markdownlint-cli": "0.28.1",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.4.1",
+    "rollup": "2.56.3",
+    "rollup-plugin-terser": "7.0.2",
+    "sort-package-json": "1.51.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

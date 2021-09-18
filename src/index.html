@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prevent vistor go back</title>
+    <style>
+      .script {
+        display: block;
+        white-space: pre;
+        border: 1px solid #ccc;
+        background: #eee;
+        font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <code></code>
+
+    <h1>
+      <a href="https://github.com/fisker/prevent-back">prevent-back</a>
+    </h1>
+
+    <p>
+      <q>A demo to show how to prevent user go back to previous page.</q>
+    </p>
+
+    <p>
+      <mark>Note: User interaction is required.</mark>
+    </p>
+
+    <div>
+      <h2>Steps to play</h2>
+      <ol>
+        <li>Click anywhere on this page</li>
+        <li>
+          Click `Back` button in browseror
+          <button onclick="history.back()">Click here to go back</button>
+        </li>
+      </ol>
+    </div>
+
+    <dialog id="js-dialog" class="dialog">
+      <form method="dialog">
+        <div>
+          <p>哥哥,再玩会嘛</p>
+        </div>
+        <menu>
+          <button type="submit" value="stay">I want stay!</button>
+          <button type="submit" value="leave">I want leave!</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script type="module" class="script">
+      import preventBack, {stay, leave} from './index.mjs'
+
+      const dialog = document.getElementById('js-dialog')
+      dialog.addEventListener('close', (e) => {
+        if (dialog.returnValue === 'stay') {
+          stay()
+        } else {
+          leave()
+        }
+      })
+
+      preventBack((/* stay, leave */) => {
+        dialog.showModal()
+      })
+    </script>
+  </body>
+</html>
