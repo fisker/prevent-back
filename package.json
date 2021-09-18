@@ -42,7 +42,7 @@
     "lint:package-json": "yarn run format:package-json --check",
     "lint:prettier": "prettier \"**/*.{css,html,js,json,less,md,scss,ts,vue,yaml,yml}\" --check",
     "release": "run-s clean lint build test format dist",
-    "test": "testcafe chrome tests",
+    "test": "ava",
     "test-coverage": "yarn test"
   },
   "config": {
