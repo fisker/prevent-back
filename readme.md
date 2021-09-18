@@ -12,6 +12,10 @@
 
 > Prevent vistor go back to previous page
 
+## Demo
+
+[prevent-back](https://fisker.github.io/prevent-back/src/index.html)
+
 ## Install
 
 ```sh
