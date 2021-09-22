@@ -23,7 +23,7 @@ jobs:
           - "chrome"
           - "firefox"
     env:
-      PUPPETEER_PRODUCT: ${{ matrix.browser }
+      PUPPETEER_PRODUCT: ${{ matrix.browser }}
     name: ${{ matrix.browser }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     needs: [build]
