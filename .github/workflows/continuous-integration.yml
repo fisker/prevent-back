@@ -21,7 +21,7 @@ jobs:
           - "16"
         browser:
           - "chrome"
-          - "firefox"
+          # - "firefox"
     env:
       PUPPETEER_PRODUCT: ${{ matrix.browser }}
     name: ${{ matrix.browser }} on ${{ matrix.os }}
