@@ -51,6 +51,7 @@
     }
   },
   "ava": {
+    "timeout": "1m",
     "verbose": true
   },
   "devDependencies": {
