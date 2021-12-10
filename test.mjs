@@ -1,11 +1,11 @@
 import fs from 'node:fs/promises'
 import test from 'ava'
-import puppeteer from 'puppeteer'
+import launchBrowser from 'launch-puppeteer'
 import createTestServer from 'create-test-server'
 
 async function withPage(t, run) {
   const server = await startServer()
-  const browser = await puppeteer.launch()
+  const browser = await launchBrowser()
   const page = await browser.newPage()
   page.on('console', (message) => {
     for (let index = 0; index < message.args().length; index += 1) {
